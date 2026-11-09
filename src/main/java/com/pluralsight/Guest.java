@@ -4,17 +4,28 @@ import java.util.HashMap;
 
 public class Guest {
     // Instance variables
-    public String name;
-    public int room;
-    public String key;
+    private String name;
+    private int room;
+    private String key;
     HashMap<String, Double> receipt = new HashMap<>();
 
-    // Construction
+    // Constructors
+    public Guest(String name) {
+        this.name = name;
+        this.room = 0;
+        this.key = "None";
+        this.receipt = new HashMap<String,Double>();
+    }
     public Guest(String name, int room, String key, HashMap<String, Double> receipt) {
         this.name = name;
         this.room = room;
         this.key = key;
         this.receipt = receipt;
+    }
+
+    // Methods
+    public void addToReceipt(String item, double price) {
+        this.receipt.put(item,price);
     }
 
     // Getters and setters
