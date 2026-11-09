@@ -15,7 +15,9 @@ public class FrontDesk {
     // Methods
     public String checkInGuest(Guest guest, int room, String key, double roomPrice) {
         // Charges guest for room fee and checks them in
-        guest.setRoom(room);
+        if (occupiedRooms.containsKey(room)) {
+            return "Room " + room + " is already occupied.";
+        }
         guest.setKey(key);
         guest.addToReceipt("Room fee",roomPrice);
         return clerk + " has checked in " + guest.getName();
